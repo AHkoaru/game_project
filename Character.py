@@ -8,6 +8,7 @@ class Character:
         # 총알 발사를 위한 캐릭터 중앙 점 추가
         self.center = np.array([(self.position[0] + self.position[2]) / 2, (self.position[1] + self.position[3]) / 2])
         self.outline = "#FFFFFF"
+        self.speed = 10
 
     def move(self, command = None):
         if command['move'] == False:
@@ -19,20 +20,20 @@ class Character:
             self.outline = "#FF0000" #빨강색상 코드!
 
             if command['up_pressed']:
-                self.position[1] -= 5
-                self.position[3] -= 5
+                self.position[1] -= self.speed
+                self.position[3] -= self.speed
 
             if command['down_pressed']:
-                self.position[1] += 5
-                self.position[3] += 5
+                self.position[1] += self.speed
+                self.position[3] += self.speed
 
             if command['left_pressed']:
-                self.position[0] -= 5
-                self.position[2] -= 5
+                self.position[0] -= self.speed
+                self.position[2] -= self.speed
                 
             if command['right_pressed']:
-                self.position[0] += 5
-                self.position[2] += 5
+                self.position[0] += self.speed
+                self.position[2] += self.speed
                 
         self.center = np.array([(self.position[0] + self.position[2]) / 2, (self.position[1] + self.position[3]) / 2]) 
 

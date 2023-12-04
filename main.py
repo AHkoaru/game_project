@@ -93,5 +93,5 @@ def main():
 if __name__ == '__main__':
     while count:
         main()
-        speed += 1
+        speed += 0.5
     
