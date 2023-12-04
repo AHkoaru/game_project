@@ -9,6 +9,7 @@ class Enemy():
         self.outline = "#00FF00"
         self.speed = speed
 
+    #캐릭터 쪽으로 움직이기 위한 코드
     def move(self, character):
         distance_x = character[0] - self.center[0]
         distance_y = character[1] - self.center[1]

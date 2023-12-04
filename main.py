@@ -54,6 +54,7 @@ def main():
             bullets.append(bullet)
 
         my_circle.move(command)
+        #캐릭터 중앙을 기준으로 적이 이동
         enemy_1.move(my_circle.center)
         enemy_2.move(my_circle.center)
         enemy_3.move(my_circle.center)
@@ -66,7 +67,7 @@ def main():
         my_draw.rectangle((0, 0, joystick.width, joystick.height), fill = (255, 255, 255, 100))
         my_draw.ellipse(tuple(my_circle.position), outline = my_circle.outline, fill = (0, 0, 0))
 
-        #접촉시 종료
+        #적과 접촉시 종료
         for enemy in enemys_list:
             global count
             if my_circle.is_at_enemy(enemy.center):
@@ -81,6 +82,7 @@ def main():
             if bullet.state != 'hit':
                 my_draw.rectangle(tuple(bullet.position), outline = bullet.outline, fill = (0, 0, 255))
 
+        #모든적 사살시 게임 재시작
         all_enemies_dead = all(enemy.state == 'die' for enemy in enemys_list)
         if all_enemies_dead:
             cnt = False
@@ -93,5 +95,6 @@ def main():
 if __name__ == '__main__':
     while count:
         main()
+        #적 속도 증가
         speed += 0.5
     

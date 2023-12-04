@@ -37,5 +37,6 @@ class Character:
                 
         self.center = np.array([(self.position[0] + self.position[2]) / 2, (self.position[1] + self.position[3]) / 2]) 
 
+    #적과 겹치는지 확인
     def is_at_enemy(self, enemy_center):
         return np.array_equal(self.center, enemy_center)
